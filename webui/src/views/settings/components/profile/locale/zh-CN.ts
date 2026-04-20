@@ -213,5 +213,9 @@ export default {
   'page.settings.tab.profile.module.antiVampire.presets.xunlei.title': '迅雷',
   'page.settings.tab.profile.module.antiVampire.presets.xunlei.enabled': '启用',
   'page.settings.tab.profile.module.antiVampire.presets.xunlei.enabled.tips':
-    '策略：A) 做种状态下，禁止所有版本迅雷客户端，因为任何版本的迅雷客户端都不会做种；B) 下载状态下，仅放行迅雷 0.0.1.9 客户端，因为此类客户端在任务下载过程中正常参与 Swarm 分享数据'
+    '策略：A) 做种状态下，禁止所有版本迅雷客户端，因为任何版本的迅雷客户端都不会做种；B) 下载状态下，仅放行迅雷 0.0.1.9 客户端，因为此类客户端在任务下载过程中正常参与 Swarm 分享数据',
+  'page.settings.tab.profile.module.antiVampire.presets.bitcomet.title': 'BitComet',
+  'page.settings.tab.profile.module.antiVampire.presets.bitcomet.enabled': '启用',
+  'page.settings.tab.profile.module.antiVampire.presets.bitcomet.enabled.tips':
+    '策略：A) 做种状态下，禁止所有版本的 BitComet 客户端，因为它们在做种时往往表现出吸血行为；B) 下载状态下，放行所有版本的 BitComet 客户端'
 }

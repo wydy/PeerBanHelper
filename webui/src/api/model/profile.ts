@@ -185,8 +185,13 @@ export interface AntiVampire {
 
 export interface AntiVampirePresets {
   xunlei: XunleiPreset
+  bitcomet: BitCometPreset
 }
 
 export interface XunleiPreset {
+  enabled: boolean
+}
+
+export interface BitCometPreset {
   enabled: boolean
 }

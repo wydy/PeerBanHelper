@@ -21,6 +21,7 @@ import java.util.Locale;
 public final class AntiVampire extends AbstractRuleFeatureModule implements Reloadable {
     private long banDuration;
     private boolean xunleiPreset;
+    private boolean bitcometPreset;
 
     @Override
     public @NotNull String getName() {
@@ -62,6 +63,7 @@ public final class AntiVampire extends AbstractRuleFeatureModule implements Relo
     public void reloadConfig() {
         this.banDuration = getConfig().getLong("ban-duration", 0);
         this.xunleiPreset = getConfig().getBoolean("presets.xunlei.enabled");
+        this.bitcometPreset = getConfig().getBoolean("presets.bitcomet.enabled");
     }
 
     @Override
@@ -70,7 +72,37 @@ public final class AntiVampire extends AbstractRuleFeatureModule implements Relo
             CheckResult checkResult = checkXunleiPreset(torrent, peer, downloader);
             if(checkResult != null) return checkResult;
         }
+        if(bitcometPreset){
+            CheckResult checkResult = checkBitCometPreset(torrent, peer, downloader);
+            if(checkResult != null) return checkResult;
+        }
         return pass();
+    }
+
+    private CheckResult checkBitCometPreset(@NotNull Torrent torrent, @NotNull Peer peer, @NotNull Downloader downloader) {
+        boolean isBitComet = false;
+        if (peer.getPeerId() != null) {
+            var peerId = peer.getPeerId().toLowerCase(Locale.ROOT);
+            if (peerId.startsWith("-bc")) {
+                isBitComet = true;
+            }
+        }
+        if (peer.getClientName() != null) {
+            var clientName = peer.getClientName().toLowerCase(Locale.ROOT);
+            if (clientName.contains("bitcomet")) {
+                isBitComet = true;
+            }
+        }
+        if(!isBitComet){
+            return null;
+        }
+
+        // 不允许做种连接
+        if(torrent.isSeeding()){
+            return new CheckResult(getClass(), PeerAction.BAN, banDuration, new TranslationComponent(Lang.MODULE_ANTI_VAMPIRE_TITLE), new TranslationComponent(Lang.MODULE_ANTI_VAMPIRE_DESCRIPTION_BITCOMET_SEEDING),
+                    StructuredData.create().add("client", "bitcomet").add("seeding", torrent.isSeeding()));
+        }
+        return null;
     }
 
     private CheckResult checkXunleiPreset(@NotNull Torrent torrent, @NotNull Peer peer, @NotNull Downloader downloader) {
