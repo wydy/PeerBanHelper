@@ -470,6 +470,7 @@ DEMO_MODE_OPERATION_NOT_PERMITTED: "This instance is running in demo mode, this 
 MODULE_ANTI_VAMPIRE_TITLE: "Anti-Leeching"
 MODULE_ANTI_VAMPIRE_DESCRIPTION_XUNLEI_NON_0019: "[Blocked] Identified malicious client refusing to upload (Xunlei, non-0019 version): Blocked from connecting to any tasks"
 MODULE_ANTI_VAMPIRE_DESCRIPTION_XUNLEI_0019_SEEDING: "[Countermeasure] Identified malicious client refusing to seed (Xunlei, 0019 version): Blocked from connecting to seeding tasks"
+MODULE_ANTI_VAMPIRE_DESCRIPTION_BITCOMET_SEEDING: "[Countermeasure] Identified malicious client refusing to seed (BitComet): Blocked from connecting to seeding tasks"
 DOWNLOADER_BC_FAILED_REQUEST_STATISTICS_LIST: "Failed to retrieve statistics for downloader {}: {} - {}"
 DOWNLOADER_VERSION_INCOMPATIBLE: "Downloader version is incompatible: {}, required: {}"
 BTN_ABILITY_IP_DENYLIST_TITLE: "IP Denylist"

@@ -39,6 +39,17 @@
     >
       <a-switch v-model="model.presets.xunlei.enabled" />
     </a-form-item>
+
+    <a-typography-title :heading="6">{{
+      t('page.settings.tab.profile.module.antiVampire.presets.bitcomet.title')
+    }}</a-typography-title>
+    <a-form-item
+      :label="t('page.settings.tab.profile.module.antiVampire.presets.bitcomet.enabled')"
+      :tooltip="t('page.settings.tab.profile.module.antiVampire.presets.bitcomet.enabled.tips')"
+      field="model.presets.bitcomet.enabled"
+    >
+      <a-switch v-model="model.presets.bitcomet.enabled" />
+    </a-form-item>
   </a-space>
 </template>
 <script setup lang="ts">

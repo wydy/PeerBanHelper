@@ -231,5 +231,9 @@ export default {
   'page.settings.tab.profile.module.antiVampire.presets.xunlei.title': 'Xunlei',
   'page.settings.tab.profile.module.antiVampire.presets.xunlei.enabled': 'Enable',
   'page.settings.tab.profile.module.antiVampire.presets.xunlei.enabled.tips':
-    'Strategy: A) In seeding state, block all versions of Xunlei clients as no version of Xunlei will seed; B) In downloading state, only allow Xunlei 0.0.1.9 clients as they normally participate in Swarm data sharing during task download'
+    'Strategy: A) In seeding state, block all versions of Xunlei clients as no version of Xunlei will seed; B) In downloading state, only allow Xunlei 0.0.1.9 clients as they normally participate in Swarm data sharing during task download',
+  'page.settings.tab.profile.module.antiVampire.presets.bitcomet.title': 'BitComet',
+  'page.settings.tab.profile.module.antiVampire.presets.bitcomet.enabled': 'Enable',
+  'page.settings.tab.profile.module.antiVampire.presets.bitcomet.enabled.tips':
+    'Strategy: A) In seeding state, block all versions of BitComet clients as they often exhibit leeching behavior during seeding; B) In downloading state, allow all versions of BitComet clients'
 }
