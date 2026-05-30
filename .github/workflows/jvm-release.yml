@@ -293,7 +293,7 @@ jobs:
 
   Build_Docker:
     name: Build Docker Image
-    if: github.event_name != 'workflow_dispatch'
+    #if: github.event_name != 'workflow_dispatch'
     permissions:
       contents: write
       checks: write
