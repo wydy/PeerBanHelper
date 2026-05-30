@@ -324,7 +324,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.10.0
         with:
-          images: ghostchu/peerbanhelper
+          images: manaitarushia/peerbanhelper
           tags: |
             type=ref,event=branch
             type=ref,event=tag
