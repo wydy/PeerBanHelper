@@ -41,8 +41,9 @@ public final class PBHLogsController extends AbstractWebSocketFeatureModule {
 
     @Override
     public void onEnable() {
-        webContainer.javalin()
+        webContainer.routes()
                 .get("/api/logs/history", this::handleLogs, Role.USER_WRITE)
+                .wsBeforeUpgrade("/api/logs/stream", this::beforeUpgrade)
                 .ws("/api/logs/stream", this::handleLogsStream, Role.USER_WRITE);
         Main.getEventBus().register(this);
     }
