@@ -120,10 +120,9 @@ jobs:
           while IFS= read -r SPK_FILE; do
             echo "Uploading: ${SPK_FILE}"
             curl --location --request POST "https://spk-repo.pbh-btn.com/api/packages" \
+              --user "${{ secrets.SPKREPO_BASIC_AUTH }}:" \
               --header "Content-Type: application/octet-stream" \
-              --header "Authorization: Basic ${{ secrets.SPKREPO_BASIC_AUTH }}" \
               --header "Accept: */*" \
-              --header "Connection: keep-alive" \
               --data-binary "@${SPK_FILE}"
             echo "Upload completed for: ${SPK_FILE}"
           done <<< "$SPK_FILES"
@@ -341,7 +340,7 @@ jobs:
             type=raw,latest
             type=sha
       - name: Build and push Docker image
-        uses: docker/build-push-action@v7.3.0
+        uses: docker/build-push-action@v7.4.0
         #if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
         with:
           context: .
@@ -378,7 +377,7 @@ jobs:
             type=sha
       - name: Build and push Aliyun ACR
         if: ${{ github.event_name == 'release' && !github.event.release.prerelease }}
-        uses: docker/build-push-action@v7.3.0
+        uses: docker/build-push-action@v7.4.0
         with:
           context: .
           file: ./Dockerfile-Release
